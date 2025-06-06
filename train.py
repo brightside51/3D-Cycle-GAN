@@ -14,6 +14,8 @@ if __name__ == '__main__':
     # -----  Loading the init options -----
     opt = TrainOptions().parse()
 
+
+    """
     # -----  Transformation and Augmentation process for the data  -----
     min_pixel = int(opt.min_pixel * ((opt.patch_size[0] * opt.patch_size[1] * opt.patch_size[2]) / 100))
     trainTransforms = [
@@ -26,6 +28,7 @@ if __name__ == '__main__':
     train_set = NifitDataSet(opt.data_path, which_direction='AtoB', transforms=trainTransforms, shuffle_labels=True, train=True)
     print('lenght train list:', len(train_set))
     train_loader = DataLoader(train_set, batch_size=opt.batch_size, shuffle=True, num_workers=opt.workers, pin_memory=True)  # Here are then fed to the network with a defined batch size
+    """
 
     # -----------------------------------------------------
     model = create_model(opt)  # creation of the model
